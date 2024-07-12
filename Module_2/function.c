@@ -218,8 +218,19 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
 
             // Изменение ФИО
             char actionName, actionSurname, actionPatronymic;
-            printf("Изменить имя? (Y/N): ");
-            scanf(" %c", &actionName);
+            while (1) {
+                printf("Изменить имя? (Y/N): ");
+                if (scanf(" %c", &actionName) == 1) {
+                    if (actionName == 'Y' || actionName == 'N') {
+                        break;
+                    } else {
+                        printf("Неверное действие. Попробуйте еще раз.\n");
+                    }
+                } else {
+                    printf("Ошибка ввода действия\n");
+                    return;
+                }
+            }
 
             while (getchar() != '\n');
 
@@ -234,8 +245,19 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
                 }
             }
 
-            printf("Изменить фамилию? (Y/N): ");
-            scanf(" %c", &actionSurname);
+            while (1) {
+                printf("Изменить фамилию? (Y/N): ");
+                if (scanf(" %c", &actionSurname) == 1) {
+                    if (actionSurname == 'Y' || actionSurname == 'N') {
+                        break;
+                    } else {
+                        printf("Неверное действие. Попробуйте еще раз.\n");
+                    }
+                } else {
+                    printf("Ошибка ввода действия\n");
+                    return;
+                }
+            }
 
             while (getchar() != '\n');
             if (actionSurname == 'Y') {
@@ -249,8 +271,19 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
                 }
             }
 
-            printf("Изменить отчество? (Y/N): ");
-            scanf(" %c", &actionPatronymic);
+            while (1) {
+                printf("Изменить отчество? (Y/N): ");
+                if (scanf(" %c", &actionPatronymic) == 1) {
+                    if (actionPatronymic == 'Y' || actionPatronymic == 'N') {
+                        break;
+                    } else {
+                        printf("Неверное действие. Попробуйте еще раз.\n");
+                    }
+                } else {
+                    printf("Ошибка ввода действия\n");
+                    return;
+                }
+            }
 
             while (getchar() != '\n');
             if (actionPatronymic == 'Y') {
@@ -266,8 +299,19 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
 
             // Изменение телефонов
             char actionPhone;
-            printf("Изменить телефоны? (Y/N): ");
-            scanf(" %c", &actionPhone);
+            while (1) {
+                printf("Изменить телефоны? (Y/N): ");
+                if (scanf(" %c", &actionPhone) == 1) {
+                    if (actionPhone == 'Y' || actionPhone == 'N') {
+                        break;
+                    } else {
+                        printf("Неверное действие. Попробуйте еще раз.\n");
+                    }
+                } else {
+                    printf("Ошибка ввода действия\n");
+                    return;
+                }
+            }
 
             while (getchar() != '\n');
             if (actionPhone == 'Y') {
@@ -280,7 +324,6 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
                         return;
                     }
 
-                    // Проверяем  'q' для завершения
                     if (buffer[0] == 'q' && buffer[1] == '\n') {
                         break;
                     }
@@ -294,43 +337,61 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
                 }
             }
 
-
             // Изменение email-ов
             char actionMail;
-            printf("Изменить email-ы? (Y/N): ");
-            scanf(" %c", &actionMail);
+            while (1) {
+                printf("Изменить email-ы? (Y/N): ");
+                if (scanf(" %c", &actionMail) == 1) {
+                    if (actionMail == 'Y' || actionMail == 'N') {
+                        break;
+                    } else {
+                        printf("Неверное действие. Попробуйте еще раз.\n");
+                    }
+                } else {
+                    printf("Ошибка ввода действия\n");
+                    return;
+                }
+            }
             while (getchar() != '\n');
 
             if (actionMail == 'Y') {
-            printf("Введите новые email-ы (по одному в строке, введите 'q' для завершения):\n");
-            int countMails = 0;
-            while (countMails < MAX_LEN_MAIL) {
-                char buffer[MAX_LEN_MAIL];
-                if (fgets(buffer, MAX_LEN_MAIL, stdin) == NULL) {
-                    printf("Ошибка ввода email\n");
-                    return;
-                }
+                printf("Введите новые email-ы (по одному в строке, введите 'q' для завершения):\n");
+                int countMails = 0;
+                while (countMails < MAX_LEN_MAIL) {
+                    char buffer[MAX_LEN_MAIL];
+                    if (fgets(buffer, MAX_LEN_MAIL, stdin) == NULL) {
+                        printf("Ошибка ввода email\n");
+                        return;
+                    }
 
-                
-                if (buffer[0] == 'q' && buffer[1] == '\n') {
-                    break;
-                }
+                    if (buffer[0] == 'q' && buffer[1] == '\n') {
+                        break;
+                    }
 
-                
-                if (buffer[strlen(buffer) - 1] == '\n') {
-                    buffer[strlen(buffer) - 1] = '\0';
-                }
+                    if (buffer[strlen(buffer) - 1] == '\n') {
+                        buffer[strlen(buffer) - 1] = '\0';
+                    }
 
-                
-                strcpy(ListPerson[i].mail[countMails], buffer);
-                countMails++;
+                    strcpy(ListPerson[i].mail[countMails], buffer);
+                    countMails++;
+                }
             }
-        }
 
             // Изменение места работы и должности
             char actionJob;
-            printf("Изменить место работы и должность? (Y/N): ");
-            scanf(" %c", &actionJob);
+            while (1) {
+                printf("Изменить место работы и должность? (Y/N): ");
+                if (scanf(" %c", &actionJob) == 1) {
+                    if (actionJob == 'Y' || actionJob == 'N') {
+                        break;
+                    } else {
+                        printf("Неверное действие. Попробуйте еще раз.\n");
+                    }
+                } else {
+                    printf("Ошибка ввода действия\n");
+                    return;
+                }
+            }
 
             while (getchar() != '\n');
             if (actionJob == 'Y') {
@@ -355,49 +416,55 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
 
             // Изменение социальных сетей
             char actionSocial;
-            printf("Изменить социальные сети? (Y/N): ");
-            scanf(" %c", &actionSocial);
+            while (1) {
+                printf("Изменить социальные сети? (Y/N): ");
+                if (scanf(" %c", &actionSocial) == 1) {
+                    if (actionSocial == 'Y' || actionSocial == 'N') {
+                        break;
+                    } else {
+                        printf("Неверное действие. Попробуйте еще раз.\n");
+                    }
+                } else {
+                    printf("Ошибка ввода действия\n");
+                    return;
+                }
+            }
             while (getchar() != '\n');
             if (actionSocial == 'Y') {
-    printf("Введите новые социальные сети (по одной в строке, введите 'q' для завершения):\n");
-    int countSocialNetworks = 0;
-    while (countSocialNetworks < MAX_LEN_LIST_SOCIALNETWORK) {
-        printf("Название сети: ");
-        char nameBuf[MAX_LEN_SOCIAL_NETWORK_NAME];
-        if (fgets(nameBuf, MAX_LEN_SOCIAL_NETWORK_NAME, stdin) == NULL) {
-            printf("Ошибка ввода названия сети\n");
-            return;
-        }
+                printf("Введите новые социальные сети (по одной в строке, введите 'q' для завершения):\n");
+                int countSocialNetworks = 0;
+                while (countSocialNetworks < MAX_LEN_LIST_SOCIALNETWORK) {
+                    printf("Название сети: ");
+                    char nameBuf[MAX_LEN_SOCIAL_NETWORK_NAME];
+                    if (fgets(nameBuf, MAX_LEN_SOCIAL_NETWORK_NAME, stdin) == NULL) {
+                        printf("Ошибка ввода названия сети\n");
+                        return;
+                    }
 
-        
-        if (nameBuf[0] == 'q' && nameBuf[1] == '\n') {
-            break;
-        }
+                    if (nameBuf[0] == 'q' && nameBuf[1] == '\n') {
+                        break;
+                    }
 
-        // Удаление символа новой строки
-        if (nameBuf[strlen(nameBuf) - 1] == '\n') {
-            nameBuf[strlen(nameBuf) - 1] = '\0';
-        }
+                    if (nameBuf[strlen(nameBuf) - 1] == '\n') {
+                        nameBuf[strlen(nameBuf) - 1] = '\0';
+                    }
 
-        printf("Ссылка на сеть: ");
-        char linkBuf[MAX_LEN_SOCIAL_NETWORK_LINK];
-        if (fgets(linkBuf, MAX_LEN_SOCIAL_NETWORK_LINK, stdin) == NULL) {
-            printf("Ошибка ввода ссылки на сеть\n");
-            return;
-        }
+                    printf("Ссылка на сеть: ");
+                    char linkBuf[MAX_LEN_SOCIAL_NETWORK_LINK];
+                    if (fgets(linkBuf, MAX_LEN_SOCIAL_NETWORK_LINK, stdin) == NULL) {
+                        printf("Ошибка ввода ссылки на сеть\n");
+                        return;
+                    }
 
-        
-        if (linkBuf[strlen(linkBuf) - 1] == '\n') {
-            linkBuf[strlen(linkBuf) - 1] = '\0';
-        }
+                    if (linkBuf[strlen(linkBuf) - 1] == '\n') {
+                        linkBuf[strlen(linkBuf) - 1] = '\0';
+                    }
 
-        
-        strcpy(ListPerson[i].ListSocialNetworks[countSocialNetworks].name, nameBuf);
-        strcpy(ListPerson[i].ListSocialNetworks[countSocialNetworks].link, linkBuf);
-        countSocialNetworks++;
-    }
-}
-
+                    strcpy(ListPerson[i].ListSocialNetworks[countSocialNetworks].name, nameBuf);
+                    strcpy(ListPerson[i].ListSocialNetworks[countSocialNetworks].link, linkBuf);
+                    countSocialNetworks++;
+                }
+            }
 
             printf("Данные человека с ID %d успешно изменены.\n", id);
             break;
@@ -408,6 +475,7 @@ void changePerson(struct Person* ListPerson, int* lenListPerson) {
         printf("Человек с ID %d не найден.\n", id);
     }
 }
+
 
 
 void delPerson(struct Person* ListPerson, int* lenListPerson) {
