@@ -10,7 +10,7 @@ int main (int argc, char * argv[]) {
         exit(0);
     }
 
-    int mid = argc/ 2;
+    int mid = (argc +1) / 2;
     
     pid_t proc;
 
@@ -22,11 +22,13 @@ int main (int argc, char * argv[]) {
 
     if(proc == 0){
         //дочерний 
+        printf("работает дочерний:\n");
 
         //i =1 так как argv[0] будет иметь имя исполняемого фаила
         for(int i = 1; i < mid; i++){
             printf("площадь квадрата со стороной %.2f = %.2f\n", atof(argv[i]), atof(argv[i]) * atof(argv[i]));
         }
+        printf("\n");
         exit(0);
 
     }
@@ -34,6 +36,7 @@ int main (int argc, char * argv[]) {
     //wait ждет пока дочерный процесс не завершится, проверяем что wait без ошибки 
 
     pid_t chaid_pid = wait(NULL);
+    printf("работает родительский: \n");
     if (chaid_pid == -1){
         perror("error wait");
         exit(0);
