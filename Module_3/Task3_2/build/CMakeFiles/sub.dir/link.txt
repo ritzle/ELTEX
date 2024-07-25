@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/sub.dir/sub.c.o -o sub 

@@ -1,0 +1,7 @@
+/home/vlad/ELTEX/ELTEX/Module_3/Task3_2/build/CMakeFiles/sum.dir
+/home/vlad/ELTEX/ELTEX/Module_3/Task3_2/build/CMakeFiles/div.dir
+/home/vlad/ELTEX/ELTEX/Module_3/Task3_2/build/CMakeFiles/mul.dir
+/home/vlad/ELTEX/ELTEX/Module_3/Task3_2/build/CMakeFiles/sub.dir
+/home/vlad/ELTEX/ELTEX/Module_3/Task3_2/build/CMakeFiles/main.dir
+/home/vlad/ELTEX/ELTEX/Module_3/Task3_2/build/CMakeFiles/edit_cache.dir
+/home/vlad/ELTEX/ELTEX/Module_3/Task3_2/build/CMakeFiles/rebuild_cache.dir

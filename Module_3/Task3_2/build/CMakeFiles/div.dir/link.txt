@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/div.dir/div.c.o -o div 
